@@ -46,30 +46,30 @@ func TestAccVultrUser_dataBase(t *testing.T) {
 func testAccVultrUserConfig_base(email string) string {
 	return fmt.Sprintf(`
 		resource "vultr_user" "admin" {
- 			name = "Terraform AccTests"
- 			email = "%s"
- 			password = "password"
- 			acl = [
-           	"manage_users",
-           	"subscriptions_view",
-           	"subscriptions",
-           	"billing",
-           	"support",
-           	"provisioning",
-           	"dns",
-           	"abuse",
-           	"upgrade",
-           	"firewall",
-           	"alerts"
- 			]
- 			api_enabled = true
+			name = "Terraform AccTests"
+			email = "%s"
+			password = "password"
+			acl = [
+				"manage_users",
+				"subscriptions_view",
+				"subscriptions",
+				"billing",
+				"support",
+				"provisioning",
+				"dns",
+				"abuse",
+				"upgrade",
+				"firewall",
+				"alerts"
+			]
+			api_enabled = true
 		}
 
 		data "vultr_user" "admin" {
 			filter {
-   			name = "email"
-   			values = ["${vultr_user.admin.email}"]
- 				}
+			name = "email"
+			values = ["${vultr_user.admin.email}"]
+				}
 			}
 
 	`, email)

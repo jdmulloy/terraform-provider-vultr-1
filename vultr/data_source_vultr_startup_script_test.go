@@ -41,10 +41,10 @@ func testAccCheckVultrStartupScriptConfig_base(name string) string {
 		}
 
 		data "vultr_startup_script" "my_script" {
-   		filter {
-   			name = "name"
-   			values = ["${vultr_startup_script.foo.name}"]
+		filter {
+			name = "name"
+			values = ["${vultr_startup_script.foo.name}"]
 			}
- 		}
+		}
 		`, name)
 }

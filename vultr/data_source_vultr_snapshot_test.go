@@ -37,12 +37,12 @@ func TestAccDataSourceVultrSnapshot(t *testing.T) {
 func testAccDataSourceVultrSnapshotBase(vpsLabel, desc string) string {
 	return fmt.Sprintf(`
 	resource "vultr_instance" "test" {
- 			plan = "vc2-1c-1gb"
- 			region = "ewr"
+			plan = "vc2-1c-1gb"
+			region = "ewr"
 			os_id = "167"
- 			label = "%s"
- 			hostname = "testing-the-hostname"
- 			tag = "even better tag"
+			label = "%s"
+			hostname = "testing-the-hostname"
+			tag = "even better tag"
 		}
 
 		resource "vultr_snapshot" "foo" {
@@ -51,10 +51,10 @@ func testAccDataSourceVultrSnapshotBase(vpsLabel, desc string) string {
 		}
 
 		data "vultr_snapshot" "my_snapshot" {
-   		filter {
-   			name = "description"
-   			values = ["${vultr_snapshot.foo.description}"]
+		filter {
+			name = "description"
+			values = ["${vultr_snapshot.foo.description}"]
 			}
- 		}
+		}
 		`, vpsLabel, desc)
 }

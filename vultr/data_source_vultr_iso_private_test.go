@@ -41,9 +41,9 @@ func testAccVultrIsoPrivate_read(description string) string {
 		}
 
 		data "vultr_iso_private" "alpine" {
- 			filter {
-   			name = "filename"
-   			values = ["${vultr_iso_private.alpine.filename}"]
- 			}
+			filter {
+				name = "filename"
+				values = ["${vultr_iso_private.alpine.filename}"]
+			}
 		}`, description)
 }

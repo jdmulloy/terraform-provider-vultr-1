@@ -191,32 +191,32 @@ func testAccCheckVultrInstanceDestroy(s *terraform.State) error {
 func testAccVultrInstanceBase(name string) string {
 	return fmt.Sprintf(`
 		resource "vultr_instance" "test" {
- 			plan = "vc2-1c-1gb"
- 			region = "sea"
- 			os_id = "167"
- 			label = "%s"
- 			hostname = "testing-the-hostname"
- 			enable_ipv6 = true
- 			backups = true
- 			activation_email = false
- 			ddos_protection = true
- 			tag = "even better tag"
+			plan = "vc2-1c-1gb"
+			region = "sea"
+			os_id = "167"
+			label = "%s"
+			hostname = "testing-the-hostname"
+			enable_ipv6 = true
+			backups = true
+			activation_email = false
+			ddos_protection = true
+			tag = "even better tag"
 		} `, name)
 }
 
 func testAccVultrInstanceBaseUpdateFirewall(name string) string {
 	return fmt.Sprintf(`
 		resource "vultr_instance" "test" {
- 			plan = "vc2-1c-1gb"
- 			region = "sea"
- 			os_id = "167"
- 			label = "%s"
- 			hostname = "testing-the-hostname"
- 			enable_ipv6 = true
- 			backups = true
- 			activation_email = false
- 			ddos_protection = true
- 			tag = "even better tag"
+			plan = "vc2-1c-1gb"
+			region = "sea"
+			os_id = "167"
+			label = "%s"
+			hostname = "testing-the-hostname"
+			enable_ipv6 = true
+			backups = true
+			activation_email = false
+			ddos_protection = true
+			tag = "even better tag"
 			firewall_group_id = "${vultr_firewall_group.fwg.id}"
 		}
 
@@ -234,40 +234,40 @@ func testAccVultrInstanceBaseUpdateNetworkIDs(name string) string {
 			cidr_block  = "10.0.0.0/24"
 		}
 
-  	resource "vultr_network" "bar" {
+	resource "vultr_network" "bar" {
 			region   = "sea"
 			description = "bar"
 			cidr_block  = "10.0.0.0/24"
 		}
 
-		resource "vultr_instance" "test" {
-			plan = "vc2-1c-2gb"
-			region = "sea"
-			os_id = 167
-			label = "%s"
-			hostname = "testing-the-hostname"
-			enable_ipv6 = true
-			backups = "enabled"
-			activation_email = false
-			ddos_protection = true
-			tag = "even better tag"
-      	network_ids = ["${vultr_network.foo.id}","${vultr_network.bar.id}"]
-		}
-		`, name)
+	resource "vultr_instance" "test" {
+		plan = "vc2-1c-2gb"
+		region = "sea"
+		os_id = 167
+		label = "%s"
+		hostname = "testing-the-hostname"
+		enable_ipv6 = true
+		backups = "enabled"
+		activation_email = false
+		ddos_protection = true
+		tag = "even better tag"
+		network_ids = ["${vultr_network.foo.id}","${vultr_network.bar.id}"]
+	}
+	`, name)
 }
 
 func testAccVultrInstanceBaseUpdatedRegion(name string) string {
 	return fmt.Sprintf(`
 		resource "vultr_instance" "test" {
- 			plan = "vc2-1c-1gb"
- 			region = "ewr"
- 			os_id = 167
- 			label = "%s"
- 			hostname = "testing-the-hostname"
- 			enable_ipv6 = true
- 			backups = true
- 			activation_email = false
- 			ddos_protection = true
- 			tag = "even better tag"
+			plan = "vc2-1c-1gb"
+			region = "ewr"
+			os_id = 167
+			label = "%s"
+			hostname = "testing-the-hostname"
+			enable_ipv6 = true
+			backups = true
+			activation_email = false
+			ddos_protection = true
+			tag = "even better tag"
 		} `, name)
 }
